@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI-Based Security-Aware Auto Scaling Cloud System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-icon">☁</div>
+    <div>
+      <h1>AI-Based Security-Aware Auto Scaling Cloud System</h1>
+      <p>Live simulation dashboard &mdash; Group 20, Dept. of ISE, SJCIT</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="loadTestDdosBtn" class="load-test-btn ddos">⚡ Run DDoS Load Test</button>
+    <button id="loadTestBruteBtn" class="load-test-btn brute">⚡ Run Brute-Force Test</button>
+    <button id="resetBtn" class="reset-btn">Reset Simulation</button>
+  </div>
+</header>
+
+<main>
+
+  <div class="data-source-banner">
+    🟢 <strong>LIVE — Real Data:</strong> CPU &amp; Memory below are genuine OS-level metrics from this server (via psutil), not simulated. Click a load test button to safely generate real traffic for the AI to detect.
+  </div>
+
+  <section class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-label">Active Instances</span>
+      <span class="stat-value" id="statInstances">--</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">CPU Usage</span>
+      <span class="stat-value" id="statCpu">--%</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Security Score</span>
+      <span class="stat-value" id="statSecurity">--</span>
+    </div>
+    <div class="stat-card" id="threatCard">
+      <span class="stat-label">Threat Level</span>
+      <span class="stat-value" id="statThreat">--</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Blocked Sources</span>
+      <span class="stat-value" id="statBlocked">--</span>
+    </div>
+  </section>
+
+  <section class="chart-row">
+    <div class="panel">
+      <h2>Workload &mdash; CPU Usage vs AI Prediction</h2>
+      <canvas id="cpuChart" height="110"></canvas>
+    </div>
+    <div class="panel">
+      <h2>Security &mdash; Live Anomaly Score</h2>
+      <canvas id="anomalyChart" height="110"></canvas>
+    </div>
+  </section>
+
+  <section class="lower-grid">
+    <div class="panel">
+      <h2>Auto-Scaling Decisions</h2>
+      <div class="scroll-list" id="scalingList"></div>
+    </div>
+    <div class="panel">
+      <h2>System &amp; Security Alerts</h2>
+      <div class="scroll-list" id="alertsList"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Live Traffic Feature Snapshot</h2>
+    <div class="table-wrap">
+      <table id="featureTable">
+        <thead>
+          <tr>
+            <th>Tick</th><th>Time</th><th>CPU%</th><th>Mem%</th><th>Req/s</th>
+            <th>Resp(ms)</th><th>Err%</th><th>Uniq IPs</th><th>Login Fails</th><th>Classification</th>
+          </tr>
+        </thead>
+        <tbody id="featureTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

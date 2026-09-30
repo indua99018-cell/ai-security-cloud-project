@@ -1,0 +1,45 @@
+{
+  "confusion_matrix": [
+    [
+      391,
+      9
+    ],
+    [
+      0,
+      400
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 1.0,
+      "recall": 0.9775,
+      "f1-score": 0.988621997471555,
+      "support": 400.0
+    },
+    "attack": {
+      "precision": 0.9779951100244498,
+      "recall": 1.0,
+      "f1-score": 0.9888751545117429,
+      "support": 400.0
+    },
+    "accuracy": 0.98875,
+    "macro avg": {
+      "precision": 0.988997555012225,
+      "recall": 0.98875,
+      "f1-score": 0.988748575991649,
+      "support": 800.0
+    },
+    "weighted avg": {
+      "precision": 0.988997555012225,
+      "recall": 0.98875,
+      "f1-score": 0.988748575991649,
+      "support": 800.0
+    }
+  },
+  "subtype_detection_rate": {
+    "bot_scrape": 100.0,
+    "bruteforce": 100.0,
+    "ddos": 100.0
+  },
+  "n_samples_evaluated": 800
+}
